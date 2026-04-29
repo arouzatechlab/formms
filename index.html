@@ -44,10 +44,27 @@
 
       /* Header Layout */
       .main-header {
+        position: relative;
         text-align: center;
         margin-bottom: 20px;
         border-bottom: 2px solid var(--primary-blue);
         padding-bottom: 15px;
+      }
+
+      /* Contact Details in Header */
+      .header-contact-details {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+      }
+
+      .header-contact-details a {
+        color: var(--primary-blue);
+        text-decoration: none;
       }
 
       .logo-placeholder {
@@ -203,7 +220,7 @@
         width: 18px;
         height: 18px;
         border: 1px solid var(--text-main);
-        border-radius: 2px; /* Small radius for square look */
+        border-radius: 2px;
         background: var(--white);
         cursor: pointer;
         position: relative;
@@ -212,7 +229,6 @@
         margin: 0;
       }
 
-      /* Checkmark / Indicator */
       input[type="radio"].square-radio:checked::after,
       input[type="checkbox"]:checked::after {
         content: "✓";
@@ -286,7 +302,6 @@
         font-style: italic;
       }
 
-      /* Button */
       .submit-container {
         text-align: center;
         margin-top: 50px;
@@ -320,6 +335,11 @@
       }
 
       @media (max-width: 768px) {
+        .header-contact-details {
+          position: static;
+          text-align: center;
+          margin-bottom: 10px;
+        }
         .sub-header {
           flex-direction: column-reverse;
           align-items: center;
@@ -373,11 +393,19 @@
     <form id="appForm" class="form-container" novalidate>
       <!-- Header: Logo and Company Name -->
       <header class="main-header">
+        <!-- New Contact Info in Top Right -->
+        <div class="header-contact-details">
+          <div>www.rock6.in</div>
+          <div>rock6business@gmail.com</div>
+        </div>
+
         <img
           src="./assets/rocklogo.webp"
           alt="Government Logo Placeholder"
           class="logo-placeholder"
+          onerror="this.style.display = 'none'"
         />
+
         <div class="company-name">ROCK6 RESEARCH AND DEVELOPEMENT GROUP</div>
       </header>
 
@@ -406,16 +434,6 @@
             <img id="photo-preview" src="" alt="Preview" />
           </div>
           <input type="file" id="photo-input" accept="image/*" />
-          <!-- <p
-            style="
-              font-size: 0.65rem;
-              color: var(--text-muted);
-              margin-top: 5px;
-              font-weight: bold;
-            "
-          >
-            (CLICK TO UPLOAD)
-          </p> -->
         </div>
       </div>
 
@@ -470,111 +488,111 @@
         <div class="form-group">
           <label>Gender *</label>
           <div class="square-options">
-            <label class="square-item"
-              ><input
+            <label class="square-item">
+              <input
                 type="radio"
                 name="gender"
                 value="Male"
                 class="square-radio"
                 required
               />
-              Male</label
-            >
-            <label class="square-item"
-              ><input
+              Male
+            </label>
+            <label class="square-item">
+              <input
                 type="radio"
                 name="gender"
                 value="Female"
                 class="square-radio"
               />
-              Female</label
-            >
-            <label class="square-item"
-              ><input
+              Female
+            </label>
+            <label class="square-item">
+              <input
                 type="radio"
                 name="gender"
                 value="Other"
                 class="square-radio"
               />
-              Other</label
-            >
+              Other
+            </label>
           </div>
         </div>
         <div class="form-group">
           <label>Blood Group *</label>
           <div class="blood-group-grid">
-            <label class="square-item"
-              ><input
+            <label class="square-item">
+              <input
                 type="radio"
                 name="bloodGroup"
                 value="A+"
                 class="square-radio"
               />
-              A+</label
-            >
-            <label class="square-item"
-              ><input
+              A+
+            </label>
+            <label class="square-item">
+              <input
                 type="radio"
                 name="bloodGroup"
                 value="A-"
                 class="square-radio"
               />
-              A-</label
-            >
-            <label class="square-item"
-              ><input
+              A-
+            </label>
+            <label class="square-item">
+              <input
                 type="radio"
                 name="bloodGroup"
                 value="B+"
                 class="square-radio"
               />
-              B+</label
-            >
-            <label class="square-item"
-              ><input
+              B+
+            </label>
+            <label class="square-item">
+              <input
                 type="radio"
                 name="bloodGroup"
                 value="B-"
                 class="square-radio"
               />
-              B-</label
-            >
-            <label class="square-item"
-              ><input
+              B-
+            </label>
+            <label class="square-item">
+              <input
                 type="radio"
                 name="bloodGroup"
                 value="AB+"
                 class="square-radio"
               />
-              AB+</label
-            >
-            <label class="square-item"
-              ><input
+              AB+
+            </label>
+            <label class="square-item">
+              <input
                 type="radio"
                 name="bloodGroup"
                 value="AB-"
                 class="square-radio"
               />
-              AB-</label
-            >
-            <label class="square-item"
-              ><input
+              AB-
+            </label>
+            <label class="square-item">
+              <input
                 type="radio"
                 name="bloodGroup"
                 value="O+"
                 class="square-radio"
               />
-              O+</label
-            >
-            <label class="square-item"
-              ><input
+              O+
+            </label>
+            <label class="square-item">
+              <input
                 type="radio"
                 name="bloodGroup"
                 value="O-"
                 class="square-radio"
               />
-              O-</label
-            >
+              O-
+            </label>
           </div>
         </div>
       </div>
@@ -601,26 +619,26 @@
       <div class="form-group full-width">
         <label>Select interested categories:</label>
         <div class="square-options">
-          <label class="square-item"
-            ><input type="checkbox" name="businessOption" value="FARMER GOLD" />
-            GREEN ECONOMY</label
-          >
-          <label class="square-item"
-            ><input
+          <label class="square-item">
+            <input type="checkbox" name="businessOption" value="FARMER GOLD" />
+            GREEN ECONOMY
+          </label>
+          <label class="square-item">
+            <input
               type="checkbox"
               name="businessOption"
               value="RESEARCH AND DEVELOPMENT GROUP"
             />
-            ORANGE ECONOMY</label
-          >
-          <label class="square-item"
-            ><input type="checkbox" name="businessOption" value="FUNDING" />
-            FUNDING</label
-          >
-          <label class="square-item"
-            ><input type="checkbox" name="businessOption" value="BUSINESS" />
-            BUSINESS</label
-          >
+            ORANGE ECONOMY
+          </label>
+          <label class="square-item">
+            <input type="checkbox" name="businessOption" value="FUNDING" />
+            FUNDING
+          </label>
+          <label class="square-item">
+            <input type="checkbox" name="businessOption" value="BUSINESS" />
+            BUSINESS
+          </label>
         </div>
       </div>
 
